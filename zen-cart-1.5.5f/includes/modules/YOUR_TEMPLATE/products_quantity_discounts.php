@@ -102,17 +102,17 @@ while (!$products_discounts_query->EOF) {
 	if ($_SESSION['customer_whole'] && $_SESSION['customer_whole'] != '0' ) {
 	  $quantityDiscounts[$columnCount]['discounted_price'] = $display_price - ($display_price * ($products_discounts_query->fields['discount_price_w']/100));
 	} else {
-	  $quantityDiscounts[$columnCount]['discounted_price'] = $display_price - ($display_price * ($products_discounts_query->fields['discount_price']/100));
+        $quantityDiscounts[$columnCount]['discounted_price'] = $display_price - ($display_price * ($products_discounts_query->fields['discount_price']/100));
 	}
       } else {
         if (!$display_specials_price) {
 	  if ($_SESSION['customer_whole'] && $_SESSION['customer_whole'] != '0' ) {
 	    $quantityDiscounts[$columnCount]['discounted_price'] = $display_price - ($display_price * ($products_discounts_query->fields['discount_price_w']/100));
 	  } else { 
-	    $quantityDiscounts[$columnCount]['discounted_price'] = $display_price - ($display_price * ($products_discounts_query->fields['discount_price']/100));
+          $quantityDiscounts[$columnCount]['discounted_price'] = $display_price - ($display_price * ($products_discounts_query->fields['discount_price']/100));
 	  }
         } else {
-          $quantityDiscounts[$columnCount]['discounted_price'] = $display_specials_price - ($display_specials_price * ($products_discounts_query->fields['discount_price_w']/100));
+          $quantityDiscounts[$columnCount]['discounted_price'] = $display_specials_price - ($display_specials_price * ($products_discounts_query->fields['discount_price']/100));
         }
       }
     break;
@@ -122,13 +122,13 @@ while (!$products_discounts_query->EOF) {
 	if ($_SESSION['customer_whole'] && $_SESSION['customer_whole'] != '0' ) {
 	  $quantityDiscounts[$columnCount]['discounted_price'] = $products_discounts_query->fields['discount_price_w'];
 	} else { 
-	  $quantityDiscounts[$columnCount]['discounted_price'] = $products_discounts_query->fields['discount_price'];
+        $quantityDiscounts[$columnCount]['discounted_price'] = $products_discounts_query->fields['discount_price'];
 	}
       } else {
 	if ($products_discount_type_from == '0') {
 	  $quantityDiscounts[$columnCount]['discounted_price'] = $products_discounts_query->fields['discount_price_w'];
 	} else { 
-	  $quantityDiscounts[$columnCount]['discounted_price'] = $products_discounts_query->fields['discount_price'];
+        $quantityDiscounts[$columnCount]['discounted_price'] = $products_discounts_query->fields['discount_price'];
 	}
       }
     break;
@@ -138,17 +138,17 @@ while (!$products_discounts_query->EOF) {
 	if ($_SESSION['customer_whole'] && $_SESSION['customer_whole'] != '0' ) {
 	  $quantityDiscounts[$columnCount]['discounted_price'] = $display_price - $products_discounts_query->fields['discount_price_w'];
 	} else { 
-	  $quantityDiscounts[$columnCount]['discounted_price'] = $display_price - $products_discounts_query->fields['discount_price'];
+        $quantityDiscounts[$columnCount]['discounted_price'] = $display_price - $products_discounts_query->fields['discount_price'];
 	}
       } else {
         if (!$display_specials_price) {
 	  if ($_SESSION['customer_whole'] && $_SESSION['customer_whole'] != '0' ) {
 	    $quantityDiscounts[$columnCount]['discounted_price'] = $display_price - $products_discounts_query->fields['discount_price_w'];
 	  } else {
-	    $quantityDiscounts[$columnCount]['discounted_price'] = $display_price - $products_discounts_query->fields['discount_price'];
+          $quantityDiscounts[$columnCount]['discounted_price'] = $display_price - $products_discounts_query->fields['discount_price'];
 	  }
         } else {
-          $quantityDiscounts[$columnCount]['discounted_price'] = $display_specials_price - $products_discounts_query->fields['discount_price_w'];
+          $quantityDiscounts[$columnCount]['discounted_price'] = $display_specials_price - $products_discounts_query->fields['discount_price'];
         }
 // Dual Pricing end
       }
