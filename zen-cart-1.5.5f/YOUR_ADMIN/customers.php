@@ -1226,7 +1226,7 @@ if (zen_not_null($action)) {
 
                   $zco_notifier->notify('NOTIFY_ADMIN_CUSTOMERS_LISTING_NEW_FIELDS', array(), $new_fields, $disp_order);
 /* Dual Pricing start */
-                  $customers_query_raw = "select c.customers_id, c.customers_lastname, c.customers_firstname, c.customers_email_address, c.customers_group_pricing, c.customers_telephone, c.customers_authorization, c.customers_referral, customers_whole 
+                  $customers_query_raw = "select c.customers_id, c.customers_lastname, c.customers_firstname, c.customers_email_address, c.customers_group_pricing, c.customers_telephone, c.customers_authorization, c.customers_referral, c.customers_whole,
                                            a.entry_country_id, a.entry_company, a.entry_company, a.entry_street_address, a.entry_city, a.entry_postcode,
                                            ci.customers_info_date_of_last_logon, ci.customers_info_date_account_created
                                            " . $new_fields . ",
