@@ -73,7 +73,7 @@ $tmp_special_price = $product_price;
       }
 // Dual Pricing start - hide specials
 }
-// Dual Pricing end - hide specials	  
+// Dual Pricing end - hide specials
 
       if (!$special_price) {
         $tmp_special_price = $product_price;
@@ -148,18 +148,18 @@ $tmp_special_price = $product_price;
 if ($_SESSION['customer_whole']) {
 		if ($_SESSION['customer_whole'] != '0') {
 			$i = (int)$_SESSION['customer_whole'];
-			$i--;			
+			$i--;
       		$products_price_array = $product_check->fields['products_price_w'];
 			$productsprice = explode("-",$products_price_array);
 			$products_price = (float)$productsprice[$i];
 			if ($products_price == '0' || $products_price == '') {
 				$products_price = (float)$productsprice[0];
 			}
-			
+
 			if ($products_price=='0'){
 				$products_price = $product_check->fields['products_price'];
 			}
-			
+
 		} else {
       		$products_price = $product_check->fields['products_price'];
 		}
@@ -182,11 +182,11 @@ if ($_SESSION['customer_whole']) {
             if ($_SESSION['customer_whole']) {
 		if ($_SESSION['customer_whole'] != '0') {
 			$i = (int)$_SESSION['customer_whole'];
-		$i--;		
+		$i--;
 		$option_price_array = $product_att_query->fields['options_values_price_w'];
 		$optionprice = explode("-",$option_price_array);
 		$options_values_price = (float)$optionprice[$i];
-		
+
 		if ($options_values_price=='0' || $options_values_price==''){
 			$options_values_price = (float)$optionprice[0];
 		}
@@ -321,14 +321,14 @@ if ($_SESSION['customer_whole']) {
       //
       $pricing_handled = false;
       $GLOBALS['zco_notifier']->notify(
-            'NOTIFY_ZEN_GET_PRODUCTS_DISPLAY_PRICE_SALE', 
+            'NOTIFY_ZEN_GET_PRODUCTS_DISPLAY_PRICE_SALE',
             array(
-                'products_id' => $products_id, 
-                'display_sale_price' => $display_sale_price, 
+                'products_id' => $products_id,
+                'display_sale_price' => $display_sale_price,
                 'display_special_price' => $display_special_price,
                 'display_normal_price' => $display_normal_price,
                 'products_tax_class_id' => $product_check->fields['products_tax_class_id']
-            ), 
+            ),
             $pricing_handled,
             $show_sale_discount
       );
@@ -361,15 +361,15 @@ if ($_SESSION['customer_whole']) {
       //
       $pricing_handled = false;
       $GLOBALS['zco_notifier']->notify(
-            'NOTIFY_ZEN_GET_PRODUCTS_DISPLAY_PRICE_SPECIAL', 
+            'NOTIFY_ZEN_GET_PRODUCTS_DISPLAY_PRICE_SPECIAL',
             array(
-                'products_id' => $products_id, 
+                'products_id' => $products_id,
                 'display_sale_price' => $display_sale_price,
                 'display_special_price' => $display_special_price,
                 'display_normal_price' => $display_normal_price,
                 'products_tax_class_id' => $product_check->fields['products_tax_class_id'],
                 'product_is_free' => $product_check->fields['product_is_free']
-            ), 
+            ),
             $pricing_handled,
             $show_normal_price,
             $show_special_price,
@@ -399,15 +399,15 @@ if ($_SESSION['customer_whole']) {
       //
       $pricing_handled = false;
       $GLOBALS['zco_notifier']->notify(
-            'NOTIFY_ZEN_GET_PRODUCTS_DISPLAY_PRICE_NORMAL', 
+            'NOTIFY_ZEN_GET_PRODUCTS_DISPLAY_PRICE_NORMAL',
             array(
-                'products_id' => $products_id, 
+                'products_id' => $products_id,
                 'display_sale_price' => $display_sale_price,
                 'display_special_price' => $display_special_price,
                 'display_normal_price' => $display_normal_price,
                 'products_tax_class_id' => $product_check->fields['products_tax_class_id'],
                 'product_is_free' => $product_check->fields['product_is_free']
-            ), 
+            ),
             $pricing_handled,
             $show_normal_price,
             $show_special_price,
@@ -436,17 +436,17 @@ if ($_SESSION['customer_whole']) {
     } else {
       $final_display_price = $show_normal_price . $show_special_price . $show_sale_price . $show_sale_discount;
     }
-    
+
     // -----
     // Allows an observer to inject any override to the "Free" and "Call for Price" formatting.
     //
     $tags_handled = false;
     $GLOBALS['zco_notifier']->notify(
-        'NOTIFY_ZEN_GET_PRODUCTS_DISPLAY_PRICE_FREE_OR_CALL', 
+        'NOTIFY_ZEN_GET_PRODUCTS_DISPLAY_PRICE_FREE_OR_CALL',
         array(
             'product_is_free' => $product_check->fields['product_is_free'],
             'product_is_call' => $product_check->fields['product_is_call'],
-        ), 
+        ),
         $tags_handled,
         $free_tag,
         $call_tag
@@ -472,6 +472,7 @@ if ($_SESSION['customer_whole']) {
 
     return $final_display_price . $free_tag . $call_tag;
   }
+}
 // Dual Pricing start
 // Display Price Retail
 // Specials and Tax Included
@@ -1460,11 +1461,11 @@ If a special exist * 10
 if ($_SESSION['customer_whole']) {
 		if ($_SESSION['customer_whole'] != '0') {
 			$i = (int)$_SESSION['customer_whole'];
-		$i--;	
+		$i--;
 		$option_price_array = $pre_selected->fields['options_values_price_w'];
 		$optionprice = explode("-",$option_price_array);
 		$options_values_price = (float)$optionprice[$i];
-		
+
 		if ($options_values_price=='0' || $options_values_price==''){
 			$options_values_price = (float)$optionprice[0];
 		}
@@ -1539,7 +1540,7 @@ $options_values_price = $pre_selected->fields['options_values_price'];
       $attributes_price_final_onetime += zen_get_attributes_qty_prices_onetime($pre_selected_onetime->fields["attributes_qty_prices_onetime"], 1);
 
       return $attributes_price_final_onetime;
-    }
+  }
 
 
 ////
